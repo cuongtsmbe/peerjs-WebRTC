@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+}
+
+#myvideo {
+    width: 500px;
+    height: 300px;
+}
+
+#friendvideo {
+    width: 600px;
+    height: 400px;
+}
+
+#group-video {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 99%;
+    height: 80%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.text {
+    color: pink;
+    margin: 20px;
+}
+
+#idConnect {
+    color: #17a2b8;
+}
