@@ -37,8 +37,9 @@ module.exports = function(st) {
     }
     const peer = new Peer(getID(), {
         secure: true,
-        host: 'video-call-demo2306.herokuapp.com',
+        host: 'p-video-call.herokuapp.com',
         port: 443,
+        key:'peerjs',
     });
     console.log("peer : ");
     console.log(peer);
