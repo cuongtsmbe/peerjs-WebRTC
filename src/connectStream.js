@@ -35,7 +35,7 @@ module.exports = function(st) {
         $("#idConnect").html(id);
         return id;
     }
-    const peer = new Peer(getID(), {
+    const peer = new Peer({
         secure: true,
         host: 'p-video-call.herokuapp.com',
         port: 443,
@@ -43,6 +43,9 @@ module.exports = function(st) {
     });
     console.log("peer : ");
     console.log(peer);
+    peer.on("open",function(id){
+        $("#idConnect").html(id);
+    });
     $('#div-connect').click(function() {
         console.log("stream in click button");
         console.log(stream);
