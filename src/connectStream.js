@@ -35,24 +35,21 @@ module.exports = function(st) {
         $("#idConnect").html(id);
         return id;
     }
-    const peer = new Peer({
-        secure: true,
-        host: 'p-video-call.herokuapp.com',
-        port: 443,
-        key:'peerjs',
-    });
+    const peer = new Peer(getID());
     console.log("peer : ");
     console.log(peer);
-    peer.on("open",function(id){
-        $("#idConnect").html(id);
-    });
+    // peer.on("open", function(id) {
+    //     $("#idConnect").html(id);
+    // });
     $('#div-connect').click(function() {
         console.log("stream in click button");
         console.log(stream);
         var dataIn = $("#incoming").val(); //nhập key từ phía friend
         const call = peer.call(dataIn, stream);
+        console.log("call: ");
+        console.log(call);
         call.on('stream', (remoteStream) => {
-            console.log("call stream created id friendvideo");
+            console.log("call stream created id friendvideo call.on");
             createVideo(remoteStream, "friendvideo");
         });
     });
@@ -61,6 +58,7 @@ module.exports = function(st) {
 
 
     peer.on('call', (call) => {
+        console.log("answer call");
         call.answer(stream); // Answer the call with an A/V stream.
         call.on('stream', (remoteStream) => {
             createVideo(remoteStream, "friendvideo");
